@@ -11,11 +11,11 @@ _✨ Show your LeetCode & GitHub stats in GitHub Profile. ✨_
 </div>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/songquanpeng/stats-cards/master/LICENSE">
-    <img src="https://img.shields.io/github/license/songquanpeng/stats-cards?color=brightgreen" alt="license">
+  <a href="https://raw.githubusercontent.com/HarryYe66/stats-cards/master/LICENSE">
+    <img src="https://img.shields.io/github/license/HarryYe66/stats-cards?color=brightgreen" alt="license">
   </a>
-  <a href="https://github.com/songquanpeng/stats-cards/releases/latest">
-    <img src="https://img.shields.io/github/v/release/songquanpeng/stats-cards?color=brightgreen&include_prereleases" alt="release">
+  <a href="https://github.com/HarryYe66/stats-cards/releases/latest">
+    <img src="https://img.shields.io/github/v/release/HarryYe66/stats-cards?color=brightgreen&include_prereleases" alt="release">
   </a>
   <a href="https://stats-cards-beige.vercel.app/">
     <img src="https://stats-cards-beige.vercel.app/api/website/?url=https://stats-cards-beige.vercel.app/" alt="release">
@@ -29,7 +29,7 @@ _✨ Show your LeetCode & GitHub stats in GitHub Profile. ✨_
   ·
   <a href="https://stats-cards-beige.vercel.app/reward.html">Reward</a>
   ·
-  <a href="https://github.com/songquanpeng/stats-cards/issues">Feedback</a>
+  <a href="https://github.com/HarryYe66/stats-cards/issues">Feedback</a>
 </p>
 
 ## Description
@@ -96,9 +96,9 @@ to [shield.io](https://shields.io/category/monitoring#:~:text=PREFIX%3E%26suffix
 
 ### Website Stats Display
 
-GitHub: `https://stats-cards-beige.vercel.app/api/github?username=songquanpeng`
+GitHub: `https://stats-cards-beige.vercel.app/api/github?username=HarryYe66`
 
-![My GitHub Stats](https://stats-cards-beige.vercel.app/api/github?username=songquanpeng)
+![My GitHub Stats](https://stats-cards-beige.vercel.app/api/github?username=HarryYe66)
 
 Zhihu: `https://stats-cards-beige.vercel.app/api/zhihu?username=excited-vczh`
 
