@@ -6,7 +6,7 @@ import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response } from 'express';
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+router.all('/', async (req: Request, res: Response) => {
   try {
     let { username, theme, lang, id, raw } = req.query;
     if (username === undefined) {
@@ -30,8 +30,7 @@ router.get('/', async (req: Request, res: Response) => {
     return ErrorMsg(res, error, 'error');
   }
 });
-
-router.get('/test', async (req: Request, res: Response) => {
+router.all('/test', async (req: Request, res: Response) => {
   try {
     return res.send('test');
   } catch (error) {
