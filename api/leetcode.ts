@@ -3,41 +3,42 @@ import getLeetCodeCnInfo from '../crawler/leetcode-cn';
 import renderLeetCodeCard from '../render/leetcode';
 import { cache, cacheTime } from '../common/cache';
 import { SuccessMsg, ErrorMsg } from '../common/resMsg';
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
+
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { username, cn, theme, cn_username, lang, raw } = req.query;
     let data: any;
     if (!cn_username) {
       if (cn) {
-        let key = 'lcn' + username;
+        const key = 'lcn' + username;
         data = cache.get(key);
         if (!data) {
-          data = await getLeetCodeCnInfo(username);
+          data = await getLeetCodeCnInfo(username as string);
           cache.set(key, data);
         }
       } else {
-        let key = 'l' + username;
+        const key = 'l' + username;
         data = cache.get(key);
         if (!data) {
-          data = await getLeetCodeInfo(username);
+          data = await getLeetCodeInfo(username as string);
           cache.set(key, data);
         }
       }
     } else {
-      let key = 'l' + username;
+      const key = 'l' + username;
       data = cache.get(key);
       if (!data) {
-        data = await getLeetCodeInfo(username);
+        data = await getLeetCodeInfo(username as string);
         cache.set(key, data);
       }
       data = { ...data };
-      let cn_key: any = 'lcn' + cn_username;
+      const cn_key = 'lcn' + cn_username;
       let cn_data: any = cache.get(cn_key);
       if (!cn_data) {
-        cn_data = await getLeetCodeCnInfo(cn_username);
+        cn_data = await getLeetCodeCnInfo(cn_username as string);
         cache.set(cn_key, cn_data);
       }
       data.total_solved += cn_data.total_solved;
@@ -51,9 +52,9 @@ router.get('/', async (req: Request, res: Response) => {
     data.theme = theme;
     res.setHeader('Content-Type', 'image/svg+xml');
     res.setHeader('Cache-Control', `public, max-age=${cacheTime}`);
-    return res.send(renderLeetCodeCard(data, lang));
+    return res.send(renderLeetCodeCard(data, lang as string));
   } catch (error) {
-    return ErrorMsg(res, error, 'error');
+    return next(error); // 使用 next(error) 传递错误
   }
 });
 
