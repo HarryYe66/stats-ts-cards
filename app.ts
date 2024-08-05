@@ -17,6 +17,7 @@ import website from './api/website';
 import { cacheTime } from './common/cache';
 
 const app = express();
+app.use(express.json()); // 确保 JSON 解析中间件已加载
 
 app.use('/api/zhihu', zhihu);
 app.use('/api/bilibili', bilibili);
