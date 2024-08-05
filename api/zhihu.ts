@@ -30,7 +30,7 @@ router.all('/', async (req: Request, res: Response) => {
     return ErrorMsg(res, error, 'error');
   }
 });
-router.all('/test', async (req: Request, res: Response) => {
+router.get('/test', async (req: Request, res: Response) => {
   try {
     return res.send('test');
   } catch (error) {
