@@ -1,5 +1,37 @@
 {
-  "github": {
-    "silent": true
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "crawler/**",
+          "render/**",
+          "common/**"
+        ]
+      }
+    },
+    {
+      "src": "app.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "crawler/**",
+          "render/**",
+          "common/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app.ts"
+    }
+  ]
 }
