@@ -3,25 +3,11 @@
   "builds": [
     {
       "src": "api/**/*.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "crawler/**",
-          "render/**",
-          "common/**"
-        ]
-      }
+      "use": "@vercel/node"
     },
     {
       "src": "app.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "crawler/**",
-          "render/**",
-          "common/**"
-        ]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
