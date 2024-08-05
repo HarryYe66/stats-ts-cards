@@ -31,4 +31,12 @@ router.get('/', async (req: Request, res: Response) => {
   }
 });
 
+router.get('/test', async (req: Request, res: Response) => {
+  try {
+    return res.send('test');
+  } catch (error) {
+    return ErrorMsg(res, error, 'error');
+  }
+});
+
 export default router;
