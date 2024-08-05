@@ -5,9 +5,7 @@ import { cache, cacheTime } from '../common/cache';
 import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response, NextFunction } from 'express';
 
-const router = express.Router();
-
-router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+export default async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { username, cn, theme, cn_username, lang, raw } = req.query;
     let data: any;
@@ -56,6 +54,4 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   } catch (error) {
     return next(error); // 使用 next(error) 传递错误
   }
-});
-
-export default router;
+};

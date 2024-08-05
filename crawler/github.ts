@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 let config = {};
 if (process.env['GITHUB_TOKEN']) {

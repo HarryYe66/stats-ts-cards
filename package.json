@@ -16,6 +16,7 @@
     "@types/node": "^22.1.0",
     "axios": "^1.7.3",
     "cheerio": "^1.0.0-rc.12",
+    "crypto": "^1.0.1",
     "express": "^4.19.2",
     "lru-cache": "^11.0.0",
     "ts-node": "^10.9.2",

@@ -5,9 +5,8 @@ import { processData } from '../common/utils';
 
 import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response } from 'express';
-const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
   try {
     const { id, theme, lang, raw } = req.query;
     let key = 'n' + id;
@@ -27,6 +26,4 @@ router.get('/', async (req: Request, res: Response) => {
   } catch (error) {
     return ErrorMsg(res, error, 'error');
   }
-});
-
-export default router;
+};

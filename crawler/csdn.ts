@@ -1,6 +1,6 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
-const axiosConfig = require('../common/utils').mobileConfig;
+import { mobileConfig as axiosConfig } from '../common/utils';
 
 export default async function getCSDNInfo(name: any) {
   let result: any = {

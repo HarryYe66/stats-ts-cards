@@ -5,7 +5,7 @@ import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response } from 'express';
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
   try {
     let { url, style, logo, raw } = req.query;
     if (!url) {
@@ -60,6 +60,4 @@ router.get('/', async (req: Request, res: Response) => {
   } catch (error) {
     return ErrorMsg(res, error, 'error');
   }
-});
-
-export default router;
+};

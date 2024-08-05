@@ -1,18 +1,22 @@
-import getSteamInfo from '../crawler/steam';
-import renderSteamCard from '../render/steam';
+import getNeteaseMusicInfo from '../crawler/netease-music';
+import renderZhihuCard from '../render/zhihu';
 import { cache, cacheTime } from '../common/cache';
 import { processData } from '../common/utils';
-
 import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response } from 'express';
 
 export default async (req: Request, res: Response) => {
   try {
-    let { theme, lang, raw } = req.query;
-    let key = 's' + process.env['STEAM_ID'];
+    let { username, theme, lang, id, raw } = req.query;
+    if (username === undefined) {
+      username = id;
+    }
+    let key = 'z' + username;
     let data = cache.get(key) as any;
     if (!data) {
-      data = await getSteamInfo();
+      data = await getNeteaseMusicInfo(username);
+      console.log(username, data);
+
       cache.set(key, data);
     }
     if (raw) {
@@ -22,7 +26,7 @@ export default async (req: Request, res: Response) => {
     processData(data);
     res.setHeader('Content-Type', 'image/svg+xml');
     res.setHeader('Cache-Control', `public, max-age=${cacheTime}`);
-    return res.send(renderSteamCard(data, lang));
+    return res.send(renderZhihuCard(data, lang));
   } catch (error) {
     return ErrorMsg(res, error, 'error');
   }

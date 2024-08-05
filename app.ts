@@ -14,6 +14,7 @@ import mycard from './api/mycard';
 import steam from './api/steam';
 import codeforces from './api/codeforces';
 import website from './api/website';
+import wyy from './api/wyy';
 import { cacheTime } from './common/cache';
 
 const app = express();
@@ -30,6 +31,7 @@ app.use('/api/github', github);
 app.use('/api/website', website);
 app.use('/api/mycard', mycard);
 app.use('/api/steam', steam);
+app.use('/api/wyy', wyy);
 app.use('/api/codeforces', codeforces);
 
 app.use(

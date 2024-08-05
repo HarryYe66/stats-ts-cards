@@ -4,9 +4,8 @@ import { cacheTime, cache } from '../common/cache';
 import { processData } from '../common/utils';
 import { SuccessMsg, ErrorMsg } from '../common/resMsg';
 import express, { Request, Response } from 'express';
-const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
   try {
     let { username, theme, lang, id, raw } = req.query;
     if (username === undefined) {
@@ -29,6 +28,4 @@ router.get('/', async (req: Request, res: Response) => {
   } catch (error) {
     return ErrorMsg(res, error, 'error');
   }
-});
-
-export default router;
+};
